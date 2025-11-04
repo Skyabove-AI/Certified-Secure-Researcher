@@ -1,0 +1,126 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	:root {
+		--primary: #047857;
+		--primary-dark: #065f46;
+		--primary-light: #10b981;
+		--secondary: #059669;
+		--accent: #34d399;
+		--dark: #1e293b;
+		--gray: #64748b;
+		--light-gray: #cbd5e1;
+		--bg: #f0fdf4;
+		--white: #ffffff;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		line-height: 1.6;
+		color: var(--dark);
+		background: var(--white);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		line-height: 1.2;
+		color: var(--dark);
+	}
+
+	.container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.875rem 1.75rem;
+		border-radius: 0.5rem;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.2s;
+		cursor: pointer;
+		border: none;
+	}
+
+	.btn-primary {
+		background: var(--primary);
+		color: white;
+	}
+
+	.btn-primary:hover {
+		background: var(--primary-dark);
+		transform: translateY(-2px);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--primary);
+		border: 2px solid var(--primary);
+	}
+
+	.btn-secondary:hover {
+		background: var(--primary);
+		color: white;
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 1rem;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, {
+			threshold: 0.1
+		});
+
+		document.querySelectorAll('.fade-in').forEach((el) => {
+			observer.observe(el);
+		});
+	});
+</script>

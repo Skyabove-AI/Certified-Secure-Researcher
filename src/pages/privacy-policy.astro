@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy - Certified Secure Researcher™">
+	<header>
+		<div class="container">
+			<div class="header-content">
+				<div class="logo">
+					<a href="/"><h1>Certified Secure Researcher™</h1></a>
+				</div>
+				<nav>
+					<a href="/" class="btn btn-secondary">Back to Home</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<main class="content-page">
+		<div class="container">
+			<h2>Privacy Policy</h2>
+			<p class="last-updated">Last Updated: January 2025</p>
+
+			<section>
+				<h3>Introduction</h3>
+				<p>This Privacy Policy describes how Certified Secure Researcher™ (operated by IPTalons) collects, uses, and protects your personal information.</p>
+			</section>
+
+			<section>
+				<h3>Information We Collect</h3>
+				<p>We collect information necessary to process your CSR certification application, including:</p>
+				<ul>
+					<li>ORCiD identifier and associated profile information</li>
+					<li>Contact information and institutional affiliations</li>
+					<li>Training records and attestations</li>
+					<li>Collaboration histories and disclosures</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>How We Use Your Information</h3>
+				<p>Your information is used to:</p>
+				<ul>
+					<li>Process and adjudicate certification applications</li>
+					<li>Maintain certification records and status</li>
+					<li>Provide verification services to institutions and sponsors</li>
+					<li>Communicate updates and important notices</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Information Sharing</h3>
+				<p>We share your information only with authorized parties including your institution, sponsoring agencies, and as required by law.</p>
+			</section>
+
+			<section>
+				<h3>Contact Us</h3>
+				<p>For privacy-related inquiries, please contact us through our official channels.</p>
+			</section>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-content">
+				<p>&copy; 2025 IPTalons. All rights reserved.</p>
+				<nav class="footer-nav">
+					<a href="/privacy-policy">Privacy Policy</a>
+					<a href="/terms-of-service">Terms of Service</a>
+					<a href="/terms-of-use">Terms of Use</a>
+				</nav>
+			</div>
+		</div>
+	</footer>
+</BaseLayout>
+
+<style>
+	header {
+		background-color: var(--bg-white);
+		border-bottom: 1px solid var(--border-color);
+		padding: 1.5rem 0;
+	}
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.logo a {
+		text-decoration: none;
+	}
+
+	.logo h1 {
+		font-size: 1.5rem;
+		color: var(--primary-color);
+		margin: 0;
+	}
+
+	.content-page {
+		padding: 4rem 0;
+		min-height: 60vh;
+	}
+
+	.content-page h2 {
+		color: var(--primary-color);
+		margin-bottom: 0.5rem;
+	}
+
+	.last-updated {
+		color: var(--text-light);
+		font-style: italic;
+		margin-bottom: 2rem;
+	}
+
+	.content-page section {
+		margin-bottom: 2.5rem;
+	}
+
+	.content-page h3 {
+		color: var(--text-dark);
+		margin-bottom: 1rem;
+	}
+
+	.content-page ul {
+		margin-left: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.content-page li {
+		margin-bottom: 0.5rem;
+	}
+
+	footer {
+		background-color: var(--text-dark);
+		color: white;
+		padding: 2rem 0;
+	}
+
+	.footer-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.footer-nav {
+		display: flex;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.footer-nav a {
+		color: white;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-nav a:hover {
+		color: var(--accent-color);
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+</style>

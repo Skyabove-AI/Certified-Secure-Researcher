@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Terms of Use - Certified Secure Researcher™">
+	<header>
+		<div class="container">
+			<div class="header-content">
+				<div class="logo">
+					<a href="/"><h1>Certified Secure Researcher™</h1></a>
+				</div>
+				<nav>
+					<a href="/" class="btn btn-secondary">Back to Home</a>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<main class="content-page">
+		<div class="container">
+			<h2>Terms of Use</h2>
+			<p class="last-updated">Last Updated: January 2025</p>
+
+			<section>
+				<h3>Website Usage</h3>
+				<p>This website is operated by IPTalons for the Certified Secure Researcher™ program. By using this website, you agree to these Terms of Use.</p>
+			</section>
+
+			<section>
+				<h3>Permitted Use</h3>
+				<p>You may use this website for:</p>
+				<ul>
+					<li>Learning about the CSR program</li>
+					<li>Submitting certification applications</li>
+					<li>Managing your CSR credentials</li>
+					<li>Verifying certification status (for authorized parties)</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Prohibited Activities</h3>
+				<p>You may not:</p>
+				<ul>
+					<li>Attempt to gain unauthorized access to any system or data</li>
+					<li>Use automated tools to access or scrape the website</li>
+					<li>Misrepresent your identity or affiliation</li>
+					<li>Interfere with the website's normal operation</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Intellectual Property</h3>
+				<p>All content, trademarks, and materials on this website are the property of IPTalons and are protected by intellectual property laws.</p>
+			</section>
+
+			<section>
+				<h3>Disclaimer</h3>
+				<p>This website and its content are provided "as is" without warranties of any kind. We reserve the right to modify or discontinue services without notice.</p>
+			</section>
+
+			<section>
+				<h3>Governing Law</h3>
+				<p>These Terms of Use are governed by applicable laws and regulations.</p>
+			</section>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-content">
+				<p>&copy; 2025 IPTalons. All rights reserved.</p>
+				<nav class="footer-nav">
+					<a href="/privacy-policy">Privacy Policy</a>
+					<a href="/terms-of-service">Terms of Service</a>
+					<a href="/terms-of-use">Terms of Use</a>
+				</nav>
+			</div>
+		</div>
+	</footer>
+</BaseLayout>
+
+<style>
+	header {
+		background-color: var(--bg-white);
+		border-bottom: 1px solid var(--border-color);
+		padding: 1.5rem 0;
+	}
+
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.logo a {
+		text-decoration: none;
+	}
+
+	.logo h1 {
+		font-size: 1.5rem;
+		color: var(--primary-color);
+		margin: 0;
+	}
+
+	.content-page {
+		padding: 4rem 0;
+		min-height: 60vh;
+	}
+
+	.content-page h2 {
+		color: var(--primary-color);
+		margin-bottom: 0.5rem;
+	}
+
+	.last-updated {
+		color: var(--text-light);
+		font-style: italic;
+		margin-bottom: 2rem;
+	}
+
+	.content-page section {
+		margin-bottom: 2.5rem;
+	}
+
+	.content-page h3 {
+		color: var(--text-dark);
+		margin-bottom: 1rem;
+	}
+
+	.content-page ul {
+		margin-left: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.content-page li {
+		margin-bottom: 0.5rem;
+	}
+
+	footer {
+		background-color: var(--text-dark);
+		color: white;
+		padding: 2rem 0;
+	}
+
+	.footer-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.footer-nav {
+		display: flex;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+
+	.footer-nav a {
+		color: white;
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-nav a:hover {
+		color: var(--accent-color);
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+</style>
