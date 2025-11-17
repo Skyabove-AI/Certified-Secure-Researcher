@@ -1,0 +1,163 @@
+---
+
+---
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<img src="/Images/CSR.png" alt="CSR Logo" class="footer-logo" />
+				<h3>Certified Secure Researcher<sup>™</sup></h3>
+				<p>A trusted pathway to research security readiness. Link researcher credentials to ORCiD identifiers to demonstrate compliance with funding agency standards.</p>
+			</div>
+
+			<div class="footer-links-group">
+				<h4>Quick Links</h4>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/resources">Resources</a></li>
+					<li><a href="/signup">Apply Now</a></li>
+					<li><a href="/login">Login</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-links-group">
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="/privacy-policy">Privacy Policy</a></li>
+					<li><a href="/terms-of-service">Terms of Service</a></li>
+					<li><a href="/terms-of-use">Terms of Use</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-links-group">
+				<h4>Contact</h4>
+				<ul>
+					<li><a href="mailto:support@certifiedsecureresearcher.com">Email Support</a></li>
+					<li><a href="mailto:info@certifiedsecureresearcher.com">General Inquiries</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="footer-divider"></div>
+			<p class="copyright">© 2025 Certified Secure Researcher™. All rights reserved.</p>
+			<p class="disclaimer">This certification program is an independent third-party service and is not affiliated with any government agency.</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		background: var(--dark);
+		color: var(--light-gray);
+		padding: 4rem 0 2rem;
+		border-top: 4px solid var(--accent);
+	}
+
+	.footer-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr 1fr;
+		gap: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.footer-brand {
+		padding-right: 2rem;
+	}
+
+	.footer-logo {
+		height: 60px;
+		margin-bottom: 1rem;
+	}
+
+	.footer-brand h3 {
+		color: var(--white);
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+	}
+
+	.footer-brand p {
+		font-size: 0.9375rem;
+		line-height: 1.7;
+		color: var(--light-gray);
+	}
+
+	.footer-links-group h4 {
+		color: var(--white);
+		font-size: 1rem;
+		margin-bottom: 1.25rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.footer-links-group ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-links-group li {
+		margin-bottom: 0.75rem;
+	}
+
+	.footer-links-group a {
+		color: var(--light-gray);
+		text-decoration: none;
+		font-size: 0.9375rem;
+		transition: color 0.2s;
+		display: inline-block;
+	}
+
+	.footer-links-group a:hover {
+		color: var(--accent);
+	}
+
+	.footer-bottom {
+		text-align: center;
+	}
+
+	.footer-divider {
+		height: 1px;
+		background: var(--border);
+		margin-bottom: 2rem;
+	}
+
+	.copyright {
+		font-size: 0.9375rem;
+		color: var(--light-gray);
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+	}
+
+	.disclaimer {
+		font-size: 0.8125rem;
+		color: var(--gray);
+		font-style: italic;
+	}
+
+	@media (max-width: 1024px) {
+		.footer-grid {
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+		}
+
+		.footer-brand {
+			grid-column: 1 / -1;
+			padding-right: 0;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.footer-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.site-footer {
+			padding: 3rem 0 1.5rem;
+		}
+	}
+</style>

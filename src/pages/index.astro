@@ -1,30 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout title="Certified Secure Researcher™">
-	<!-- Header -->
-	<header>
-		<div class="container">
-			<div class="header-inner">
-				<div class="logo">
-					<img src="/Images/CSR.png" alt="Certified Secure Researcher™" />
-					<h1>Certified Secure Researcher<sup>™</sup></h1>
-				</div>
-				<a href="/signup" class="btn btn-primary">Start Your Application</a>
-			</div>
-		</div>
-	</header>
+	<Header currentPage="home" />
 
 	<!-- Hero -->
 	<section class="hero">
 		<div class="container">
-			<div class="hero-badge">🔒 Trusted Security Certification</div>
+			<div class="hero-badge">OFFICIAL RESEARCH SECURITY CERTIFICATION</div>
 			<h2 class="hero-title">
-				A trusted pathway to<br />
-				<span class="gradient-text">research security readiness</span>
+				Verified Research<br />
+				<span class="gradient-text">Security Compliance</span>
 			</h2>
-			<p class="hero-text">Link researcher credentials to ORCiD identifiers to demonstrate compliance with funding agency standards.</p>
+			<p class="hero-text">Link researcher credentials to ORCiD identifiers to demonstrate compliance with federal funding agency standards and institutional security requirements.</p>
 			<div class="hero-buttons">
 				<a href="#program" class="btn btn-primary">Explore the Program</a>
 				<a href="#requirements" class="btn btn-secondary">View Requirements</a>
@@ -283,146 +274,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<!-- CTA -->
 	<section class="cta">
 		<div class="container">
-			<h2>Ready to get certified?</h2>
-			<p>Join the growing community of verified secure researchers and accelerate your research proposals.</p>
-			<a href="/signup" class="btn btn-primary btn-large">Start Your Application Today →</a>
+			<h2>Begin Your Certification Process</h2>
+			<p>Join the registry of verified secure researchers and demonstrate your commitment to research security compliance.</p>
+			<a href="/signup" class="btn btn-primary btn-large">Submit Application</a>
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<footer>
-		<div class="container">
-			<div class="footer-content">
-				<div class="footer-brand">
-					<img src="/Images/CSR.png" alt="Certified Secure Researcher™" class="footer-logo" />
-					<h3>Certified Secure Researcher™</h3>
-					<p>Trusted security certification for researchers worldwide.</p>
-				</div>
-				<div class="footer-links">
-					<div class="footer-col">
-						<h4>Legal</h4>
-						<a href="/privacy-policy">Privacy Policy</a>
-						<a href="/terms-of-service">Terms of Service</a>
-						<a href="/terms-of-use">Terms of Use</a>
-					</div>
-					<div class="footer-col">
-						<h4>Resources</h4>
-						<a href="#program">About CSR</a>
-						<a href="#requirements">Requirements</a>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom">
-				<p>&copy; 2025 IPTalons. All rights reserved.</p>
-			</div>
-		</div>
-	</footer>
+	<Footer />
 </BaseLayout>
 
 <style>
-	/* Header */
-	header {
-		background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-		border-bottom: 3px solid var(--primary);
-		padding: 1.5rem 0;
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		box-shadow: 0 4px 12px rgba(4, 120, 87, 0.15);
-	}
-
-	.header-inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	header .btn-primary {
-		background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-		box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35);
-		font-weight: 700;
-		padding: 1rem 2rem;
-	}
-
-	header .btn-primary:hover {
-		box-shadow: 0 6px 20px rgba(4, 120, 87, 0.45);
-		transform: translateY(-3px);
-	}
-
-	.logo {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		padding: 0.5rem 1rem;
-		background: white;
-		border-radius: 0.75rem;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-		transition: all 0.3s ease;
-	}
-
-	.logo:hover {
-		box-shadow: 0 4px 16px rgba(4, 120, 87, 0.2);
-		transform: translateY(-2px);
-	}
-
-	.logo img {
-		height: 80px;
-		width: auto;
-		display: block;
-	}
-
-	.logo h1 {
-		font-size: 1.25rem;
-		margin: 0;
-		background: linear-gradient(135deg, var(--primary), var(--secondary));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-	}
-
-	.logo sup {
-		font-size: 0.6em;
-	}
-
 	/* Hero */
 	.hero {
-		background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
-		padding: 5rem 0;
+		background: linear-gradient(135deg, var(--bg) 0%, #ffffff 100%);
+		padding: 6rem 0;
 		text-align: center;
+		border-bottom: 4px solid var(--primary);
 	}
 
 	.hero-badge {
 		display: inline-block;
-		background: white;
-		padding: 0.5rem 1.25rem;
-		border-radius: 2rem;
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: var(--gray);
+		background: var(--primary);
+		padding: 0.625rem 1.5rem;
+		border-radius: 0;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: var(--white);
 		margin-bottom: 2rem;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
 	}
 
 	.hero-title {
 		font-size: 3.5rem;
 		margin-bottom: 1.5rem;
 		line-height: 1.1;
+		color: var(--dark);
 	}
 
 	.gradient-text {
-		background: linear-gradient(135deg, var(--primary), var(--secondary));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--primary);
+		display: block;
 	}
 
 	.hero-text {
 		font-size: 1.25rem;
 		color: var(--gray);
-		max-width: 700px;
+		max-width: 750px;
 		margin: 0 auto 2.5rem;
+		line-height: 1.7;
 	}
 
 	.hero-buttons {
@@ -435,32 +335,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	.stats {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 		gap: 2rem;
-		max-width: 700px;
+		max-width: 750px;
 		margin: 0 auto;
 	}
 
 	.stat {
 		background: white;
 		padding: 2rem 1.5rem;
-		border-radius: 1rem;
-		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+		border-radius: 0;
+		border: 2px solid var(--primary);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 	}
 
 	.stat-value {
 		font-size: 2.5rem;
 		font-weight: 800;
-		background: linear-gradient(135deg, var(--primary), var(--secondary));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		color: var(--primary);
 	}
 
 	.stat-label {
 		font-size: 0.875rem;
 		color: var(--gray);
 		margin-top: 0.5rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 	}
 
 	/* Sections */
@@ -474,8 +375,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	.section-title {
 		text-align: center;
-		font-size: 2.5rem;
+		font-size: 2.25rem;
 		margin-bottom: 3rem;
+		color: var(--dark);
+		font-weight: 700;
 	}
 
 	/* Grids */
@@ -501,21 +404,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.card {
 		background: white;
 		padding: 2.5rem;
-		border-radius: 1rem;
-		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-		transition: transform 0.2s, box-shadow 0.2s;
+		border-radius: 0;
+		border: 2px solid var(--light-gray);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 	}
 
 	.card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+		border-color: var(--primary);
 	}
 
 	.icon-circle {
 		width: 64px;
 		height: 64px;
-		border-radius: 50%;
-		background: linear-gradient(135deg, var(--primary), var(--secondary));
+		border-radius: 0;
+		background: var(--primary);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -525,26 +430,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.card:hover .icon-circle {
-		transform: scale(1.1) rotate(5deg);
-		box-shadow: 0 8px 16px rgba(4, 120, 87, 0.3);
+		transform: scale(1.05);
+		background: var(--primary-dark);
 	}
 
 	.card h3 {
 		margin-bottom: 1rem;
-		color: var(--primary);
+		color: var(--dark);
+		font-size: 1.25rem;
 	}
 
 	.card p {
 		color: var(--gray);
+		line-height: 1.7;
 	}
 
 	/* Benefits */
 	.benefit {
 		background: white;
 		padding: 1.5rem;
-		border-radius: 0.75rem;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+		border-radius: 0;
+		border-left: 4px solid var(--primary);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 		font-weight: 600;
+		color: var(--dark);
 	}
 
 	/* Steps */
@@ -558,16 +467,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.step {
 		background: white;
 		padding: 2rem;
-		border-radius: 1rem;
-		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+		border-radius: 0;
+		border: 2px solid var(--light-gray);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		transition: border-color 0.2s;
+	}
+
+	.step:hover {
+		border-color: var(--primary);
 	}
 
 	.step-number {
 		width: 50px;
 		height: 50px;
-		background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+		background: var(--primary);
 		color: white;
-		border-radius: 0.75rem;
+		border-radius: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -578,19 +493,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 	.step h3 {
 		margin-bottom: 0.75rem;
+		color: var(--dark);
 	}
 
 	.step p {
 		color: var(--gray);
+		line-height: 1.6;
 	}
 
 	.timeline {
 		text-align: center;
-		color: var(--gray);
-		font-style: italic;
+		color: var(--dark);
+		font-weight: 600;
 		padding: 1.5rem;
 		background: white;
-		border-radius: 0.75rem;
+		border-radius: 0;
+		border: 2px solid var(--accent);
 		max-width: 800px;
 		margin: 0 auto;
 	}
@@ -603,15 +521,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.feature:hover {
-		transform: translateY(-5px);
+		transform: translateY(-4px);
 	}
 
 	.feature-icon {
 		width: 80px;
 		height: 80px;
 		margin: 0 auto 1.5rem;
-		border-radius: 50%;
-		background: linear-gradient(135deg, rgba(4, 120, 87, 0.1), rgba(5, 150, 105, 0.1));
+		border-radius: 0;
+		background: var(--bg);
+		border: 2px solid var(--primary);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -620,19 +539,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	}
 
 	.feature:hover .feature-icon {
-		background: linear-gradient(135deg, var(--primary), var(--secondary));
+		background: var(--primary);
 		color: white;
-		transform: scale(1.1);
-		box-shadow: 0 8px 20px rgba(4, 120, 87, 0.25);
 	}
 
 	.feature h3 {
 		margin-bottom: 0.75rem;
-		color: var(--primary);
+		color: var(--dark);
+		font-size: 1.125rem;
 	}
 
 	.feature p {
 		color: var(--gray);
+		line-height: 1.6;
 	}
 
 	/* FAQ */
@@ -644,8 +563,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.faq {
 		background: white;
 		padding: 1.5rem;
-		border-radius: 0.75rem;
+		border-radius: 0;
 		margin-bottom: 1rem;
+		border: 2px solid var(--light-gray);
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 	}
 
@@ -660,108 +580,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		display: none;
 	}
 
+	.faq[open] {
+		border-color: var(--primary);
+	}
+
 	.faq p {
 		margin-top: 1rem;
 		color: var(--gray);
+		line-height: 1.7;
 	}
 
 	/* CTA */
 	.cta {
-		background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+		background: var(--primary);
 		color: white;
 		padding: 5rem 0;
 		text-align: center;
-		box-shadow: 0 -4px 20px rgba(4, 120, 87, 0.1);
+		border-top: 4px solid var(--accent);
 	}
 
 	.cta h2 {
 		color: white;
 		margin-bottom: 1rem;
+		font-size: 2.25rem;
 	}
 
 	.cta p {
 		color: rgba(255, 255, 255, 0.9);
-		font-size: 1.25rem;
+		font-size: 1.125rem;
 		margin-bottom: 2rem;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.btn-large {
 		padding: 1.25rem 3rem;
 		font-size: 1.125rem;
+		font-weight: 700;
+		letter-spacing: 0.025em;
 	}
 
 	.cta .btn-primary {
-		background: white;
-		color: var(--primary);
+		background: var(--accent);
+		color: var(--dark);
+		border: none;
 	}
 
 	.cta .btn-primary:hover {
-		background: var(--bg);
+		background: #d4b76f;
+		transform: translateY(-2px);
 	}
 
-	/* Footer */
-	footer {
-		background: var(--dark);
+	.cta p {
 		color: white;
-		padding: 4rem 0 2rem;
-	}
-
-	.footer-content {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: 4rem;
-		margin-bottom: 3rem;
-	}
-
-	.footer-brand {
-		max-width: 350px;
-	}
-
-	.footer-logo {
-		height: 60px;
-		width: auto;
-		margin-bottom: 1rem;
-		display: block;
-	}
-
-	.footer-content h3 {
-		color: white;
-		margin-bottom: 0.75rem;
-		font-size: 1.25rem;
-	}
-
-	.footer-content p {
-		color: var(--light-gray);
-	}
-
-	.footer-links {
-		display: grid;
-		grid-template-columns: repeat(2, 180px);
-		gap: 3rem;
-	}
-
-	.footer-col h4 {
-		color: white;
-		font-size: 1rem;
-		margin-bottom: 1rem;
-	}
-
-	.footer-col a {
-		display: block;
-		color: var(--light-gray);
-		text-decoration: none;
-		margin-bottom: 0.5rem;
-	}
-
-	.footer-col a:hover {
-		color: white;
-	}
-
-	.footer-bottom {
-		padding-top: 2rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
-		text-align: center;
-		color: var(--light-gray);
 	}
 
 	/* Responsive */
@@ -771,15 +643,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 
 		.section-title {
-			font-size: 2rem;
-		}
-
-		.footer-content {
-			grid-template-columns: 1fr;
-		}
-
-		.footer-links {
-			grid-template-columns: 1fr 1fr;
+			font-size: 1.875rem;
 		}
 
 		.grid-2,
@@ -787,6 +651,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.grid-4,
 		.steps {
 			grid-template-columns: 1fr;
+		}
+
+		.hero {
+			padding: 4rem 0;
 		}
 	}
 </style>
