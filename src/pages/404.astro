@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+	title="Page Not Found | Certified Secure Researcher™"
+	description="The page you're looking for doesn't exist. Return to the CSR homepage or explore our resources."
+>
+	<Header />
+
+	<section class="error-section">
+		<div class="container">
+			<div class="error-content">
+				<div class="error-code">404</div>
+				<h1>Page Not Found</h1>
+				<p>The page you're looking for doesn't exist or has been moved.</p>
+
+				<div class="error-actions">
+					<a href="/" class="btn btn-primary">Return Home</a>
+					<a href="/contact" class="btn btn-secondary">Contact Support</a>
+				</div>
+
+				<div class="helpful-links">
+					<h3>Helpful Links</h3>
+					<div class="links-grid">
+						<a href="/about">About CSR</a>
+						<a href="/blog">Blog</a>
+						<a href="/resources">Resources</a>
+						<a href="/signup">Get Certified</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	.error-section {
+		min-height: 70vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4rem 0;
+		background: linear-gradient(135deg, var(--bg) 0%, white 100%);
+	}
+
+	.error-content {
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.error-code {
+		font-size: 8rem;
+		font-weight: 700;
+		color: var(--primary);
+		line-height: 1;
+		margin-bottom: 1rem;
+		font-family: 'Space Grotesk', sans-serif;
+	}
+
+	.error-content h1 {
+		font-size: 2.5rem;
+		color: var(--dark);
+		margin-bottom: 1rem;
+	}
+
+	.error-content p {
+		font-size: 1.25rem;
+		color: var(--gray);
+		margin-bottom: 2rem;
+	}
+
+	.error-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		margin-bottom: 3rem;
+		flex-wrap: wrap;
+	}
+
+	.error-actions .btn {
+		padding: 1rem 2rem;
+		font-size: 1.125rem;
+	}
+
+	.helpful-links {
+		margin-top: 3rem;
+		padding-top: 3rem;
+		border-top: 2px solid var(--light-gray);
+	}
+
+	.helpful-links h3 {
+		font-size: 1.25rem;
+		color: var(--primary);
+		margin-bottom: 1.5rem;
+	}
+
+	.links-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+	}
+
+	.links-grid a {
+		padding: 0.75rem 1rem;
+		background: white;
+		border: 2px solid var(--light-gray);
+		border-radius: 4px;
+		color: var(--primary);
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.2s;
+	}
+
+	.links-grid a:hover {
+		border-color: var(--primary);
+		background: var(--primary);
+		color: white;
+	}
+
+	@media (max-width: 768px) {
+		.error-code {
+			font-size: 5rem;
+		}
+
+		.error-content h1 {
+			font-size: 2rem;
+		}
+
+		.error-actions {
+			flex-direction: column;
+		}
+
+		.links-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -63,7 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
 		<!-- Structured Data -->
-		<script type="application/ld+json">
+		<script type="application/ld+json" is:inline>
 		{
 			"@context": "https://schema.org",
 			"@type": "Organization",
@@ -188,7 +188,8 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-		const observer = new IntersectionObserver((entries) => {
+		// Fade-in animations
+		const fadeObserver = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
 					entry.target.classList.add('visible');
@@ -199,7 +200,28 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 		});
 
 		document.querySelectorAll('.fade-in').forEach((el) => {
-			observer.observe(el);
+			fadeObserver.observe(el);
+		});
+
+		// Lazy loading for images
+		const imageObserver = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const img = entry.target as HTMLImageElement;
+					if (img.dataset.src) {
+						img.src = img.dataset.src;
+						img.removeAttribute('data-src');
+					}
+					imageObserver.unobserve(img);
+				}
+			});
+		}, {
+			rootMargin: '50px'
+		});
+
+		// Apply lazy loading to all images without loading="lazy" attribute
+		document.querySelectorAll('img:not([loading])').forEach((img) => {
+			img.setAttribute('loading', 'lazy');
 		});
 	});
 </script>
