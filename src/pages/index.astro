@@ -79,8 +79,54 @@ import Footer from '../components/Footer.astro';
 		</div>
 	</section>
 
-	<!-- Benefits -->
+	<!-- Who Needs CSR -->
 	<section class="section bg-light">
+		<div class="container">
+			<h2 class="section-title">Who Needs CSR Certification?</h2>
+			<p class="section-subtitle">IPTalons partners with organizations to manage research security and compliance in an increasingly complex threat landscape</p>
+
+			<div class="audience-cards">
+				<div class="audience-card">
+					<div class="audience-icon">🎓</div>
+					<h3>Academic Institutions</h3>
+					<p>Universities and research centers face increasing challenges with research security and compliance, especially concerning foreign influence and IP theft. IPTalons partners with academic institutions to:</p>
+					<ul>
+						<li>Implement robust research security programs</li>
+						<li>Protect against foreign interference and IP theft</li>
+						<li>Ensure compliance with federal funding requirements</li>
+						<li>Manage researcher credentials and training verification</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="audience-icon">🏢</div>
+					<h3>Corporate Organizations</h3>
+					<p>Businesses working with critical technologies need comprehensive protection for their intellectual property and trade secrets from espionage and competitive intelligence threats. IPTalons helps corporations:</p>
+					<ul>
+						<li>Safeguard IP and proprietary research</li>
+						<li>Defend against industrial espionage</li>
+						<li>Protect trade secrets from competitive intelligence</li>
+						<li>Implement security protocols for sensitive projects</li>
+					</ul>
+				</div>
+
+				<div class="audience-card">
+					<div class="audience-icon">🏛️</div>
+					<h3>Government Agencies</h3>
+					<p>Federal agencies and their supply chain partners are implementing new compliance requirements to protect national security interests. IPTalons works with government organizations to:</p>
+					<ul>
+						<li>Meet evolving federal compliance guidelines</li>
+						<li>Implement NSPM-33 and related mandates</li>
+						<li>Verify contractor and researcher credentials</li>
+						<li>Strengthen supply chain security posture</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Benefits -->
+	<section class="section">
 		<div class="container">
 			<h2 class="section-title">A designation that travels with every proposal</h2>
 			<div class="grid-2">
@@ -383,6 +429,83 @@ import Footer from '../components/Footer.astro';
 		margin-bottom: 3rem;
 		color: var(--dark);
 		font-weight: 700;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		font-size: 1.125rem;
+		color: var(--gray);
+		max-width: 800px;
+		margin: -1.5rem auto 3rem;
+		line-height: 1.7;
+	}
+
+	/* Who Needs CSR Section */
+	.audience-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.audience-card {
+		background: white;
+		padding: 2.5rem;
+		border-radius: 8px;
+		border: 3px solid var(--primary);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s;
+	}
+
+	.audience-card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+		border-color: var(--accent);
+	}
+
+	.audience-icon {
+		font-size: 3.5rem;
+		margin-bottom: 1.5rem;
+		text-align: center;
+	}
+
+	.audience-card h3 {
+		font-size: 1.5rem;
+		color: var(--primary);
+		margin-bottom: 1rem;
+		text-align: center;
+	}
+
+	.audience-card > p {
+		color: var(--dark);
+		line-height: 1.7;
+		margin-bottom: 1.5rem;
+		font-size: 1rem;
+	}
+
+	.audience-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.audience-card li {
+		padding: 0.625rem 0;
+		color: var(--gray);
+		line-height: 1.6;
+		font-size: 0.9375rem;
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.audience-card li::before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: var(--accent);
+		font-weight: bold;
+		font-size: 1.125rem;
 	}
 
 	/* Grids */
