@@ -49,6 +49,12 @@
 					</svg>
 				</a>
 			</div>
+			<div class="iptalons-branding">
+				<p class="powered-by">Powered by</p>
+				<a href="https://www.iptalons.com" target="_blank" rel="noopener noreferrer">
+					<img src="/IPTalons/IPTalonsLogo.webp" alt="IPTalons" class="iptalons-logo" />
+				</a>
+			</div>
 			<p class="copyright">© 2025 Certified Secure Researcher™. All rights reserved.</p>
 			<p class="disclaimer">This certification program is an independent third-party service and is not affiliated with any government agency.</p>
 		</div>
@@ -155,6 +161,32 @@
 		background: var(--accent);
 		color: var(--dark);
 		transform: translateY(-2px);
+	}
+
+	.iptalons-branding {
+		margin: 2rem 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.powered-by {
+		font-size: 0.875rem;
+		color: var(--gray);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		margin: 0;
+	}
+
+	.iptalons-logo {
+		height: 40px;
+		width: auto;
+		transition: opacity 0.2s;
+	}
+
+	.iptalons-branding a:hover .iptalons-logo {
+		opacity: 0.8;
 	}
 
 	.copyright {
