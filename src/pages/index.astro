@@ -784,12 +784,15 @@ import Footer from '../components/Footer.astro';
 		border: 3px solid var(--primary);
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 		overflow: hidden;
+		position: relative;
+		aspect-ratio: 16 / 9;
 	}
 
 	.video-container video {
 		width: 100%;
-		height: auto;
+		height: 100%;
 		display: block;
+		object-fit: contain;
 		background: #000;
 	}
 
