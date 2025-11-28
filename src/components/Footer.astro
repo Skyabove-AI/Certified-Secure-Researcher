@@ -53,13 +53,13 @@
 				<div class="partner-item">
 					<p class="partner-label">Integrated with</p>
 					<a href="https://orcid.org" target="_blank" rel="noopener noreferrer">
-						<img src="/images/orcid.logo.svg" alt="ORCID" class="partner-logo orcid-logo" />
+						<img src="/Images/orcid.logo.svg" alt="ORCID" class="partner-logo orcid-logo" />
 					</a>
 				</div>
 				<div class="partner-item">
 					<p class="partner-label">Powered by</p>
 					<a href="https://www.iptalons.com" target="_blank" rel="noopener noreferrer">
-						<img src="/images/IPTalonsLogo.webp" alt="IPTalons" class="partner-logo iptalons-logo" />
+						<img src="/Images/IPTalonsLogo.webp" alt="IPTalons" class="partner-logo iptalons-logo" />
 					</a>
 				</div>
 			</div>
@@ -189,7 +189,7 @@
 
 	.partner-label {
 		font-size: 0.875rem;
-		color: var(--gray);
+		color: #a0aec0;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		margin: 0;
@@ -199,27 +199,33 @@
 		height: 40px;
 		width: auto;
 		transition: opacity 0.2s;
+		background: white;
+		padding: 8px 12px;
+		border-radius: 4px;
 	}
 
 	.orcid-logo {
-		height: 35px;
+		height: 45px;
 	}
 
 	.partner-item a:hover .partner-logo {
-		opacity: 0.8;
+		opacity: 0.9;
 	}
 
 	.copyright {
-		font-size: 0.9375rem;
-		color: var(--light-gray);
-		margin-bottom: 0.5rem;
+		font-size: 1rem;
+		color: #ffffff;
+		margin-bottom: 0.75rem;
 		font-weight: 600;
 	}
 
 	.disclaimer {
-		font-size: 0.8125rem;
-		color: var(--gray);
+		font-size: 0.9375rem;
+		color: #a0aec0;
 		font-style: italic;
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
 	}
 
 	@media (max-width: 1024px) {
