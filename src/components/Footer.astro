@@ -49,11 +49,19 @@
 					</svg>
 				</a>
 			</div>
-			<div class="iptalons-branding">
-				<p class="powered-by">Powered by</p>
-				<a href="https://www.iptalons.com" target="_blank" rel="noopener noreferrer">
-					<img src="/images/IPTalonsLogo.webp" alt="IPTalons" class="iptalons-logo" />
-				</a>
+			<div class="partner-logos">
+				<div class="partner-item">
+					<p class="partner-label">Integrated with</p>
+					<a href="https://orcid.org" target="_blank" rel="noopener noreferrer">
+						<img src="/images/orcid.logo.svg" alt="ORCID" class="partner-logo orcid-logo" />
+					</a>
+				</div>
+				<div class="partner-item">
+					<p class="partner-label">Powered by</p>
+					<a href="https://www.iptalons.com" target="_blank" rel="noopener noreferrer">
+						<img src="/images/IPTalonsLogo.webp" alt="IPTalons" class="partner-logo iptalons-logo" />
+					</a>
+				</div>
 			</div>
 			<p class="copyright">© 2025 Certified Secure Researcher™. All rights reserved.</p>
 			<p class="disclaimer">This certification program is an independent third-party service and is not affiliated with any government agency.</p>
@@ -163,15 +171,23 @@
 		transform: translateY(-2px);
 	}
 
-	.iptalons-branding {
+	.partner-logos {
 		margin: 2rem 0;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 3rem;
+		flex-wrap: wrap;
+	}
+
+	.partner-item {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5rem;
 	}
 
-	.powered-by {
+	.partner-label {
 		font-size: 0.875rem;
 		color: var(--gray);
 		text-transform: uppercase;
@@ -179,13 +195,17 @@
 		margin: 0;
 	}
 
-	.iptalons-logo {
+	.partner-logo {
 		height: 40px;
 		width: auto;
 		transition: opacity 0.2s;
 	}
 
-	.iptalons-branding a:hover .iptalons-logo {
+	.orcid-logo {
+		height: 35px;
+	}
+
+	.partner-item a:hover .partner-logo {
 		opacity: 0.8;
 	}
 
