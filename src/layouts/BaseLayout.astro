@@ -1,5 +1,5 @@
 ---
-import Chatbot from '../components/Chatbot.astro';
+import Chatbot from "../components/Chatbot.astro";
 
 interface Props {
 	title: string;
@@ -14,14 +14,14 @@ const {
 	description = "Certified Secure Researcher™ (CSR) provides official research security certification linked to ORCiD identifiers. Streamline compliance with federal funding agency standards and institutional security requirements.",
 	image = "/logomain.png",
 	type = "website",
-	keywords = "research security, CSR certification, ORCiD, NSPM-33, research compliance, federal funding, intellectual property protection, research integrity, secure researcher certification"
+	keywords = "research security, CSR certification, ORCiD, NSPM-33, research compliance, federal funding, intellectual property protection, research integrity, secure researcher certification",
 } = Astro.props;
 
 const siteUrl = "https://certifiedsecureresearcher.com";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -60,43 +60,73 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 		<meta name="application-name" content="Certified Secure Researcher" />
 
 		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
 
 		<!-- Structured Data -->
 		<script type="application/ld+json" is:inline>
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Certified Secure Researcher",
-			"alternateName": "CSR",
-			"url": "https://certifiedsecureresearcher.com",
-			"logo": "https://certifiedsecureresearcher.com/logomain.png",
-			"description": "Official research security certification program linking researcher credentials to ORCiD identifiers for federal compliance.",
-			"foundingDate": "2024",
-			"areaServed": "Worldwide",
-			"parentOrganization": {
+			{
+				"@context": "https://schema.org",
 				"@type": "Organization",
-				"name": "IPTalons",
-				"url": "https://iptalons.com"
-			},
-			"sameAs": [],
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"contactType": "customer service",
-				"email": "support@certifiedsecureresearcher.com",
-				"availableLanguage": "English"
-			},
-			"offers": {
-				"@type": "Offer",
-				"name": "CSR Certification",
-				"description": "Research security certification for compliance with federal funding requirements"
+				"name": "Certified Secure Researcher",
+				"alternateName": "CSR",
+				"url": "https://certifiedsecureresearcher.com",
+				"logo": "https://certifiedsecureresearcher.com/logomain.png",
+				"description": "Official research security certification program linking researcher credentials to ORCiD identifiers for federal compliance.",
+				"foundingDate": "2024",
+				"areaServed": "Worldwide",
+				"parentOrganization": {
+					"@type": "Organization",
+					"name": "IPTalons",
+					"url": "https://iptalons.com"
+				},
+				"sameAs": [],
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"contactType": "customer service",
+					"email": "support@certifiedsecureresearcher.com",
+					"availableLanguage": "English"
+				},
+				"offers": {
+					"@type": "Offer",
+					"name": "CSR Certification",
+					"description": "Research security certification for compliance with federal funding requirements"
+				}
 			}
-		}
 		</script>
+
+		<!-- Google Tag Manager -->
+		<script is:inline>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					"gtm.start": new Date().getTime(),
+					event: "gtm.js",
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-NFFC9W4V");
+		</script>
+		<!-- End Google Tag Manager -->
 	</head>
 	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-NFFC9W4V"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
+		<!-- End Google Tag Manager (noscript) -->
 		<slot />
 		<Chatbot />
 	</body>
@@ -130,14 +160,23 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 	}
 
 	body {
-		font-family: 'Inter', system-ui, -apple-system, sans-serif;
+		font-family:
+			"Inter",
+			system-ui,
+			-apple-system,
+			sans-serif;
 		line-height: 1.6;
 		color: var(--dark);
 		background: var(--white);
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Space Grotesk', sans-serif;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: "Space Grotesk", sans-serif;
 		font-weight: 700;
 		line-height: 1.2;
 		color: var(--dark);
@@ -190,41 +229,47 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 </style>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener("DOMContentLoaded", () => {
 		// Fade-in animations
-		const fadeObserver = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-				}
-			});
-		}, {
-			threshold: 0.1
-		});
+		const fadeObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+					}
+				});
+			},
+			{
+				threshold: 0.1,
+			},
+		);
 
-		document.querySelectorAll('.fade-in').forEach((el) => {
+		document.querySelectorAll(".fade-in").forEach((el) => {
 			fadeObserver.observe(el);
 		});
 
 		// Lazy loading for images
-		const imageObserver = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const img = entry.target as HTMLImageElement;
-					if (img.dataset.src) {
-						img.src = img.dataset.src;
-						img.removeAttribute('data-src');
+		const imageObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const img = entry.target as HTMLImageElement;
+						if (img.dataset.src) {
+							img.src = img.dataset.src;
+							img.removeAttribute("data-src");
+						}
+						imageObserver.unobserve(img);
 					}
-					imageObserver.unobserve(img);
-				}
-			});
-		}, {
-			rootMargin: '50px'
-		});
+				});
+			},
+			{
+				rootMargin: "50px",
+			},
+		);
 
 		// Apply lazy loading to all images without loading="lazy" attribute
-		document.querySelectorAll('img:not([loading])').forEach((img) => {
-			img.setAttribute('loading', 'lazy');
+		document.querySelectorAll("img:not([loading])").forEach((img) => {
+			img.setAttribute("loading", "lazy");
 		});
 	});
 </script>
