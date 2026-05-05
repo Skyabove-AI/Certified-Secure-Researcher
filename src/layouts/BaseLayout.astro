@@ -14,7 +14,7 @@ const {
 	description = "Certified Secure Researcher™ (CSR) provides official research security certification linked to ORCiD identifiers. Streamline compliance with federal funding agency standards and institutional security requirements.",
 	image = "/logomain.png",
 	type = "website",
-	keywords = "research security, CSR certification, ORCiD, NSPM-33, research compliance, federal funding, intellectual property protection, research integrity, secure researcher certification",
+	keywords = "research security, CSR certification, ORCiD, NSPM-33, research compliance, federal funding, intellectual property protection, research integrity, secure researcher certification, Research Compliance Officer, Director of Research Compliance, Research Security Officer, Export Control Officer, Compliance Manager, Research Integrity Officer, Vice President for Research, Associate Vice President Research, Director of Research Administration, Institutional Compliance Director",
 } = Astro.props;
 
 const siteUrl = "https://certifiedsecureresearcher.com";
@@ -63,7 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -155,18 +155,18 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 	}
 
 	:root {
-		--primary: #2d7a3e;
-		--primary-dark: #1f5d2e;
-		--primary-light: #3d9a51;
-		--secondary: #50b661;
-		--accent: #7ec74a;
-		--dark: #1a3a22;
+		--primary: #2d6a4f;
+		--primary-dark: #1b4332;
+		--primary-light: #52b788;
+		--secondary: #40916c;
+		--accent: #d8f3dc;
+		--dark: #0b1120;
 		--gray: #4a5568;
 		--light-gray: #e2e8f0;
-		--bg: #f7fafc;
+		--bg: #faf9f6;
 		--white: #ffffff;
-		--danger: #c53030;
-		--success: #2d7a3e;
+		--danger: #d00000;
+		--success: #2d6a4f;
 		--border: #2d3748;
 	}
 
@@ -191,7 +191,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 	h4,
 	h5,
 	h6 {
-		font-family: "Space Grotesk", sans-serif;
+		font-family: "Playfair Display", serif;
 		font-weight: 700;
 		line-height: 1.2;
 		color: var(--dark);
@@ -207,7 +207,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 	.btn {
 		display: inline-block;
 		padding: 0.875rem 1.75rem;
-		border-radius: 0.5rem;
+		border-radius: 0.375rem;
 		font-weight: 600;
 		text-decoration: none;
 		transition: all 0.2s;

@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 <BaseLayout
 	title="Certified Secure Researcher™ | Official Research Security Certification"
 	description="Link researcher credentials to ORCiD identifiers for federal compliance. CSR certification streamlines NSPM-33 requirements with 10-day processing, centralized training records, and instant verification."
-	keywords="research security certification, CSR certification, ORCiD compliance, NSPM-33, federal funding compliance, research integrity, institutional security, researcher verification"
+	keywords="research security certification, CSR certification, ORCiD compliance, NSPM-33, federal funding compliance, research integrity, institutional security, researcher verification, Research Compliance Officer, Director of Research Compliance, Research Security Officer, Export Control Officer, Compliance Manager, Research Integrity Officer, Vice President for Research, Associate Vice President Research, Director of Research Administration, Institutional Compliance Director"
 >
 	<Header currentPage="home" />
 
@@ -565,20 +565,41 @@ import Footer from "../components/Footer.astro";
 <style>
 	/* Hero */
 	.hero {
-		background: linear-gradient(135deg, var(--bg) 0%, #ffffff 100%);
-		padding: 6rem 0;
+		background: var(--dark);
+		position: relative;
+		padding: 8rem 0 6rem;
 		text-align: center;
-		border-bottom: 4px solid var(--primary);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		overflow: hidden;
+	}
+
+	.hero::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 800px;
+		height: 800px;
+		background: radial-gradient(circle, rgba(45, 106, 79, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
+		transform: translate(-50%, -50%);
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.hero .container {
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-badge {
 		display: inline-block;
-		background: var(--primary);
+		background: rgba(255, 255, 255, 0.05);
 		padding: 0.625rem 1.5rem;
-		border-radius: 0;
+		border-radius: 9999px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
 		font-size: 0.8125rem;
 		font-weight: 700;
-		color: var(--white);
+		color: var(--accent);
 		margin-bottom: 2rem;
 		letter-spacing: 0.15em;
 		text-transform: uppercase;
@@ -588,7 +609,7 @@ import Footer from "../components/Footer.astro";
 		font-size: 3.5rem;
 		margin-bottom: 1.5rem;
 		line-height: 1.1;
-		color: var(--dark);
+		color: var(--white);
 	}
 
 	.gradient-text {
@@ -598,7 +619,7 @@ import Footer from "../components/Footer.astro";
 
 	.hero-text {
 		font-size: 1.25rem;
-		color: var(--gray);
+		color: var(--light-gray);
 		max-width: 750px;
 		margin: 0 auto 2.5rem;
 		line-height: 1.7;
@@ -623,9 +644,9 @@ import Footer from "../components/Footer.astro";
 	.stat {
 		background: white;
 		padding: 2rem 1.5rem;
-		border-radius: 0;
-		border: 2px solid var(--primary);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border-radius: 1rem;
+		border: 1px solid var(--light-gray);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 	}
 
 	.stat-value {
@@ -681,9 +702,9 @@ import Footer from "../components/Footer.astro";
 	.audience-card {
 		background: white;
 		padding: 2.5rem;
-		border-radius: 8px;
-		border: 3px solid var(--primary);
-		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+		border-radius: 1rem;
+		border: 1px solid var(--light-gray);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 		transition: all 0.3s;
 	}
 
@@ -760,9 +781,9 @@ import Footer from "../components/Footer.astro";
 	.card {
 		background: white;
 		padding: 2.5rem;
-		border-radius: 0;
-		border: 2px solid var(--light-gray);
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		border-radius: 1rem;
+		border: 1px solid var(--light-gray);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 		transition:
 			transform 0.2s,
 			box-shadow 0.2s,
@@ -778,19 +799,22 @@ import Footer from "../components/Footer.astro";
 	.icon-circle {
 		width: 64px;
 		height: 64px;
-		border-radius: 0;
-		background: var(--primary);
+		border-radius: 50%;
+		background: var(--bg);
+		border: 1px solid var(--light-gray);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 1.5rem;
-		color: white;
+		color: var(--primary);
 		transition: all 0.3s ease;
 	}
 
 	.card:hover .icon-circle {
 		transform: scale(1.05);
-		background: var(--primary-dark);
+		background: var(--primary-light);
+		color: white;
+		border-color: transparent;
 	}
 
 	.card h3 {
