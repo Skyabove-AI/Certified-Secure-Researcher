@@ -36,11 +36,13 @@ const { currentPage = "" } = Astro.props;
 					href="/resources"
 					class:list={[
 						{
-							active:
-								currentPage === "resources" ||
-								currentPage === "blog",
+							active: currentPage === "resources",
 						},
 					]}>Resources</a
+				>
+				<a
+					href="/blog"
+					class:list={[{ active: currentPage === "blog" }]}>Blog</a
 				>
 				<a
 					href="/community"
