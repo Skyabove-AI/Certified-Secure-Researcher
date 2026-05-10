@@ -3,6 +3,7 @@ title: "The FY 2026 NDAA: What Research Organizations Need to Know"
 description: "The Fiscal Year 2026 National Defense Authorization Act introduces transformative changes to research security. Learn about expanded disclosure mandates, stricter penalties, and how to prepare your organization."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
+image: "/assets/Article 06 - The FY 2026 NDAA.png"
 tags: ["NDAA", "Federal Funding", "Compliance", "Research Security", "Disclosure", "Policy"]
 category: "Compliance"
 subtitle: "Preparing for a more demanding regulatory environment under the FY 2026 NDAA"

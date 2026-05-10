@@ -3,6 +3,7 @@ title: "Safeguarding Innovation: Why Academic Institutions Are the New Frontline
 description: "Academic institutions are prime targets for foreign influence groups seeking sensitive research data. Learn how universities can protect federally funded innovation through robust security programs and researcher certification."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
+image: "/assets/Article 02 - Safeguarding Innovation_ Academic Institutions.png"
 tags: ["Academic Security", "Foreign Influence", "NSPM-33", "Research Security", "CSR", "Universities"]
 category: "Research Security"
 subtitle: "The intersection of academic research and national security demands a reevaluation of how we protect federally funded innovation"

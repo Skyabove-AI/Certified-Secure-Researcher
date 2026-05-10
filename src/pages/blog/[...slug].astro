@@ -42,6 +42,13 @@ const { Content } = await entry.render();
                     )
                 }
             </header>
+            {
+                entry.data.image && (
+                    <div class="post-hero-image">
+                        <img src={entry.data.image} alt={entry.data.title} />
+                    </div>
+                )
+            }
             <div class="post-content"><Content /></div>
             <div class="post-footer">
                 <div class="author-info">
@@ -105,6 +112,17 @@ const { Content } = await entry.render();
         font-size: 1.25rem;
         color: var(--gray);
         line-height: 1.5;
+    }
+    .post-hero-image {
+        max-width: 1000px;
+        margin: 0 auto 3rem auto;
+        border: 2px solid var(--light-gray);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .post-hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
     .post-content {
         max-width: 800px;

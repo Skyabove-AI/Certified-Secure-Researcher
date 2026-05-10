@@ -3,6 +3,7 @@ title: "Spilling Secrets: Lessons Learned from Trade Secret Theft"
 description: "A real-world case study in trade secret theft reveals why reactive security strategies fail. Learn how proactive insider risk management can prevent devastating IP losses."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
+image: "/assets/Article 08 - Spilling Secrets.png"
 tags: ["Trade Secrets", "IP Theft", "Insider Risk", "Case Study", "Data Loss Prevention"]
 category: "Security Analysis"
 subtitle: "When a company's most valuable assets walk out the door"
