@@ -3,7 +3,7 @@ title: "Insider Threats in Biopharma: Protecting Your Crown Jewels"
 description: "The biopharmaceutical industry faces significant insider threat risks. Learn how foreign intelligence entities exploit collaborative research environments and why 95% of insider IP loss is unintentional."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
-image: "/assets/Article 05 - Insider Threats in Biopharma.png"
+image: "/assets/article-05-insider-threats-in-biopharma.png"
 tags: ["Biopharma", "Insider Threats", "IP Protection", "Due Diligence", "NCSC", "Trade Secrets"]
 category: "Security Analysis"
 subtitle: "Why the most overlooked vulnerability in biopharma comes from within"

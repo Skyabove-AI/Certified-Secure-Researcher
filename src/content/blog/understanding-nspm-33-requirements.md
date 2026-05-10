@@ -3,7 +3,7 @@ title: "Understanding NSPM-33 Requirements for Research Security"
 description: "A comprehensive guide to NSPM-33 federal requirements for research security. Learn about disclosure requirements, institutional responsibilities, and how CSR certification helps maintain compliance with federal funding agency standards."
 pubDate: 2025-11-14
 author: "IPTalons Research Security Team"
-image: "/assets/Article 03 - Navigating NSPM-33.png"
+image: "/assets/article-03-navigating-nspm-33.png"
 tags: ["NSPM-33", "Compliance", "Federal Requirements", "Disclosure", "ORCiD"]
 category: "Compliance"
 subtitle: "A comprehensive guide to the federal framework reshaping research security compliance"

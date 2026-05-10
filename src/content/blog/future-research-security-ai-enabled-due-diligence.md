@@ -3,7 +3,7 @@ title: "The Future of Research Security: AI-Enabled Due Diligence"
 description: "Traditional due diligence methods can't keep pace with sophisticated adversaries. Learn how AI-enabled platforms like Grant Hopper are transforming research security by automating foreign influence risk assessment."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
-image: "/assets/Article 10 - AI-Enabled Due Diligence.png"
+image: "/assets/article-10-ai-enabled-due-diligence.png"
 tags: ["AI", "Due Diligence", "Grant Hopper", "Foreign Influence", "NSPM-33", "Automation"]
 category: "Industry News"
 subtitle: "How AI-powered tools are revolutionizing the way organizations vet researchers and protect innovation"

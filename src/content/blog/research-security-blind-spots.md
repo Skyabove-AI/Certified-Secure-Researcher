@@ -3,7 +3,7 @@ title: "The $44 Million Question: What's Your Research Security Blind Spot?"
 description: "Organizations saved $44 million by identifying research security blind spots. Learn about the 5 critical vulnerabilities: insider threats, collaboration traps, technology transfer risks, digital footprints, and compliance gaps."
 pubDate: 2025-11-17
 author: "IPTalons Research Security Team"
-image: "/assets/Article 01 - The $44 Million Question.png"
+image: "/assets/article-01-the-44-million-question.png"
 tags: ["Blind Spots", "Risk Assessment", "Insider Threats", "IP Protection", "$44 Million"]
 category: "Risk Assessment"
 subtitle: "Most research institutions don't even know what they don't know about their vulnerabilities"

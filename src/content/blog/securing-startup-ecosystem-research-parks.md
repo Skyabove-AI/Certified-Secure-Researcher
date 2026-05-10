@@ -3,7 +3,7 @@ title: "Securing the Startup Ecosystem: Research Parks and Innovation Hubs"
 description: "Research parks and innovation hubs are engines of economic growth but face unique security challenges. Learn how startups can protect their IP while maintaining the open collaboration that drives breakthroughs."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
-image: "/assets/Article 09 - Securing the Startup Ecosystem.png"
+image: "/assets/article-09-securing-the-startup-ecosystem.png"
 tags: ["Startups", "Research Parks", "Innovation Hubs", "IP Protection", "Technology Transfer"]
 category: "Best Practices"
 subtitle: "Protecting innovation at the intersection of academia, industry, and entrepreneurship"

@@ -3,7 +3,7 @@ title: "ORCID: The Double-Edged Sword of Research Identity Management"
 description: "ORCID creates innovation pipeline mapping risks and talent identification vulnerabilities. Learn how to balance federal compliance requirements with strategic intelligence protection for research security."
 pubDate: 2025-11-17
 author: "IPTalons Research Security Team"
-image: "/assets/Article 04 - The Double-Edged Sword of ORCiD.png"
+image: "/assets/article-04-the-double-edged-sword-of-orcid.png"
 tags: ["ORCID", "Research Security", "NSPM-33", "Compliance", "Strategic Intelligence"]
 category: "Security Analysis"
 subtitle: "Streamlined credentials vs. strategic intelligence vulnerabilities"

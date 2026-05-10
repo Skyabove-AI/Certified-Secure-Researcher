@@ -3,7 +3,7 @@ title: "Building a Culture of Security: The Role of the Innovation Defense Acade
 description: "An estimated 95% of insider IP loss is unintentional. Learn how the Innovation Defense Academy's micro-course library equips teams with the skills to spot red flags, understand export controls, and prevent accidental disclosures—starting at just $10 per learner per month."
 pubDate: 2026-05-08
 author: "IPTalons Research Security Team"
-image: "/assets/Article 07 - Building a Culture of Security.png"
+image: "/assets/article-07-building-a-culture-of-security.png"
 tags: ["Security Culture", "Insider Risk", "Training", "Innovation Defense Academy", "Micro-Learning", "Export Controls"]
 category: "Best Practices"
 subtitle: "Why continuous, engaging education is the most cost-effective defense against unintentional insider IP loss"
