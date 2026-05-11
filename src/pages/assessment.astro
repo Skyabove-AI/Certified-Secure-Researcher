@@ -1,0 +1,600 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+	title="Research Security Self-Assessment | Certified Secure Researcher™"
+	description="Take our free compliance self-assessment to evaluate your research security posture. Identify gaps in NSPM-33 compliance, ORCiD integration, and institutional security protocols."
+	keywords="research security assessment, compliance quiz, NSPM-33 self-assessment, research security evaluation, compliance gap analysis, Research Compliance Officer, Research Security Officer"
+>
+	<Header currentPage="assessment" />
+
+	<section class="page-hero">
+		<div class="container">
+			<div class="hero-badge-assess">FREE SELF-ASSESSMENT</div>
+			<h1>Is Your Research Security Compliant?</h1>
+			<p>Answer 10 questions to evaluate your institution's security posture and identify critical compliance gaps</p>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="quiz-wrapper" id="quiz-wrapper">
+				<!-- Progress Bar -->
+				<div class="progress-bar-container">
+					<div class="progress-bar" id="progress-bar"></div>
+					<span class="progress-text" id="progress-text">Question 1 of 10</span>
+				</div>
+
+				<!-- Quiz Questions Container -->
+				<div class="quiz-card" id="quiz-card">
+					<!-- Questions rendered by JS -->
+				</div>
+
+				<!-- Navigation -->
+				<div class="quiz-nav" id="quiz-nav">
+					<button class="btn btn-secondary" id="prev-btn" disabled>← Previous</button>
+					<button class="btn btn-primary" id="next-btn">Next →</button>
+				</div>
+			</div>
+
+			<!-- Results (hidden initially) -->
+			<div class="results-wrapper" id="results-wrapper" style="display:none;">
+				<div class="score-section">
+					<div class="gauge-container">
+						<svg viewBox="0 0 200 200" class="gauge-svg">
+							<circle cx="100" cy="100" r="85" fill="none" stroke="#e2e8f0" stroke-width="14" stroke-dasharray="534" stroke-dashoffset="0" transform="rotate(-90 100 100)" />
+							<circle cx="100" cy="100" r="85" fill="none" stroke-width="14" stroke-dasharray="534" stroke-linecap="round" transform="rotate(-90 100 100)" class="gauge-fill" id="gauge-fill" />
+						</svg>
+						<div class="gauge-center">
+							<span class="gauge-score" id="gauge-score">0</span>
+							<span class="gauge-label">out of 100</span>
+						</div>
+					</div>
+					<h2 id="score-title">Your Compliance Score</h2>
+					<p class="score-verdict" id="score-verdict"></p>
+				</div>
+
+				<div class="recommendations" id="recommendations">
+					<!-- Rendered by JS -->
+				</div>
+
+				<div class="results-cta">
+					<h3>Ready to Close the Gaps?</h3>
+					<p>CSR certification addresses every compliance area covered in this assessment.</p>
+					<div class="cta-buttons">
+						<a href="https://app.certifiedsecureresearcher.com/signup" class="btn btn-primary btn-large">Start Your Certification</a>
+						<button class="btn btn-secondary" id="retake-btn">Retake Assessment</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	.page-hero {
+		background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+		padding: 4rem 0;
+		text-align: center;
+		color: white;
+		position: relative;
+		overflow: hidden;
+	}
+	.page-hero::before {
+		content: "";
+		position: absolute;
+		top: 50%; left: 50%;
+		width: 600px; height: 600px;
+		background: radial-gradient(circle, rgba(216,243,220,0.12) 0%, transparent 70%);
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+	}
+	.hero-badge-assess {
+		display: inline-block;
+		background: rgba(255,255,255,0.1);
+		border: 1px solid rgba(255,255,255,0.2);
+		padding: 0.5rem 1.25rem;
+		border-radius: 9999px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		color: var(--accent);
+		margin-bottom: 1.5rem;
+	}
+	.page-hero h1 { font-size: 2.75rem; margin-bottom: 1rem; color: white; }
+	.page-hero p { font-size: 1.125rem; color: rgba(255,255,255,0.9); max-width: 650px; margin: 0 auto; }
+
+	.section { padding: 4rem 0; }
+
+	/* Quiz */
+	.quiz-wrapper { max-width: 740px; margin: 0 auto; }
+	.progress-bar-container {
+		background: var(--light-gray);
+		height: 8px;
+		border-radius: 8px;
+		overflow: hidden;
+		margin-bottom: 0.75rem;
+		position: relative;
+	}
+	.progress-bar {
+		height: 100%;
+		background: linear-gradient(90deg, var(--primary), var(--primary-light));
+		width: 10%;
+		transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		border-radius: 8px;
+	}
+	.progress-text {
+		display: block;
+		text-align: right;
+		font-size: 0.8125rem;
+		color: var(--gray);
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+	}
+	.quiz-card {
+		background: white;
+		border: 2px solid var(--light-gray);
+		padding: 2.5rem;
+		min-height: 320px;
+		box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+		transition: opacity 0.3s;
+	}
+	.quiz-card h3 {
+		font-size: 1.375rem;
+		color: var(--dark);
+		margin-bottom: 0.5rem;
+		line-height: 1.4;
+	}
+	.quiz-card .question-context {
+		color: var(--gray);
+		font-size: 0.9375rem;
+		margin-bottom: 1.75rem;
+		line-height: 1.6;
+	}
+	.quiz-options { display: flex; flex-direction: column; gap: 0.75rem; }
+	.quiz-option {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 1.25rem;
+		border: 2px solid var(--light-gray);
+		background: white;
+		cursor: pointer;
+		transition: all 0.2s;
+		font-size: 0.9375rem;
+		color: var(--dark);
+		text-align: left;
+		font-family: inherit;
+		font-weight: 500;
+		width: 100%;
+	}
+	.quiz-option:hover { border-color: var(--primary); background: rgba(45,106,79,0.04); }
+	.quiz-option.selected { border-color: var(--primary); background: rgba(45,106,79,0.08); }
+	.quiz-option .radio {
+		width: 22px; height: 22px;
+		border: 2px solid var(--light-gray);
+		border-radius: 50%;
+		flex-shrink: 0;
+		display: flex; align-items: center; justify-content: center;
+		transition: all 0.2s;
+	}
+	.quiz-option.selected .radio {
+		border-color: var(--primary);
+		background: var(--primary);
+	}
+	.quiz-option.selected .radio::after {
+		content: "";
+		width: 8px; height: 8px;
+		background: white;
+		border-radius: 50%;
+	}
+	.quiz-nav {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 1.5rem;
+	}
+	.quiz-nav .btn { min-width: 140px; text-align: center; }
+
+	/* Results */
+	.results-wrapper { max-width: 740px; margin: 0 auto; }
+	.score-section { text-align: center; margin-bottom: 3rem; }
+	.gauge-container {
+		position: relative;
+		width: 200px; height: 200px;
+		margin: 0 auto 1.5rem;
+	}
+	.gauge-svg { width: 100%; height: 100%; }
+	.gauge-fill {
+		stroke: var(--primary);
+		stroke-dashoffset: 534;
+		transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1), stroke 1s;
+	}
+	.gauge-center {
+		position: absolute;
+		top: 50%; left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+	.gauge-score {
+		display: block;
+		font-family: "Playfair Display", serif;
+		font-size: 3rem;
+		font-weight: 800;
+		color: var(--primary);
+		line-height: 1;
+	}
+	.gauge-label { font-size: 0.8125rem; color: var(--gray); font-weight: 600; }
+	.score-section h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+	.score-verdict { font-size: 1.0625rem; color: var(--gray); line-height: 1.7; max-width: 550px; margin: 0 auto; }
+
+	.recommendations { margin-bottom: 3rem; }
+	.rec-card {
+		background: white;
+		border: 2px solid var(--light-gray);
+		padding: 1.5rem;
+		margin-bottom: 1rem;
+		display: flex;
+		gap: 1.25rem;
+		align-items: flex-start;
+		transition: border-color 0.2s;
+	}
+	.rec-card:hover { border-color: var(--primary); }
+	.rec-icon {
+		width: 44px; height: 44px;
+		background: var(--accent);
+		border-radius: 50%;
+		display: flex; align-items: center; justify-content: center;
+		font-size: 1.25rem;
+		flex-shrink: 0;
+	}
+	.rec-card h4 { font-size: 1rem; color: var(--dark); margin-bottom: 0.375rem; font-family: "Inter", sans-serif; }
+	.rec-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; margin-bottom: 0.5rem; }
+	.rec-link { font-size: 0.8125rem; color: var(--primary); font-weight: 700; text-decoration: none; }
+	.rec-link:hover { text-decoration: underline; }
+
+	.rec-severity {
+		display: inline-block;
+		padding: 0.125rem 0.5rem;
+		font-size: 0.6875rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
+	}
+	.severity-high { background: #fee2e2; color: #991b1b; }
+	.severity-medium { background: #fef3c7; color: #92400e; }
+	.severity-low { background: #d1fae5; color: #065f46; }
+
+	.results-cta {
+		background: var(--primary);
+		padding: 3rem;
+		text-align: center;
+		color: white;
+	}
+	.results-cta h3 { font-size: 1.75rem; color: white; margin-bottom: 0.75rem; }
+	.results-cta p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; font-size: 1.0625rem; }
+	.results-cta .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+	.results-cta .btn-secondary { background: white; color: var(--primary); border-color: white; }
+	.results-cta .btn-secondary:hover { background: transparent; color: white; }
+	.btn-large { padding: 1rem 2rem; font-size: 1.0625rem; }
+
+	@media (max-width: 768px) {
+		.page-hero h1 { font-size: 2rem; }
+		.quiz-card { padding: 1.5rem; }
+		.rec-card { flex-direction: column; gap: 0.75rem; }
+	}
+</style>
+
+<script>
+	const questions = [
+		{
+			id: 1,
+			question: "Does your institution have a formal research security program?",
+			context: "NSPM-33 requires covered institutions to maintain research security programs.",
+			options: [
+				{ text: "Yes, fully implemented and regularly reviewed", score: 10 },
+				{ text: "Yes, but it hasn't been updated recently", score: 6 },
+				{ text: "We have informal guidelines only", score: 3 },
+				{ text: "No formal program exists", score: 0 }
+			],
+			area: "program"
+		},
+		{
+			id: 2,
+			question: "Are your researchers required to complete security training?",
+			context: "Federal agencies increasingly require documented security training for grant recipients.",
+			options: [
+				{ text: "Yes, mandatory annual training with tracked completion", score: 10 },
+				{ text: "Yes, but completion tracking is inconsistent", score: 6 },
+				{ text: "Training is available but optional", score: 3 },
+				{ text: "No security training program exists", score: 0 }
+			],
+			area: "training"
+		},
+		{
+			id: 3,
+			question: "Do your researchers have ORCiD identifiers linked to their profiles?",
+			context: "ORCiD integration enables portable credential verification across institutions.",
+			options: [
+				{ text: "Yes, institutional policy requires ORCiD for all researchers", score: 10 },
+				{ text: "Most researchers have ORCiD but it's not mandatory", score: 6 },
+				{ text: "Some researchers use ORCiD on their own", score: 3 },
+				{ text: "ORCiD is not part of our workflow", score: 0 }
+			],
+			area: "orcid"
+		},
+		{
+			id: 4,
+			question: "How does your institution handle conflict of interest disclosures?",
+			context: "COI disclosure is a cornerstone of research integrity and federal compliance.",
+			options: [
+				{ text: "Automated annual collection with real-time updates for changes", score: 10 },
+				{ text: "Annual paper-based or form collection", score: 6 },
+				{ text: "Disclosures collected only when flagged", score: 3 },
+				{ text: "No formal COI disclosure process", score: 0 }
+			],
+			area: "coi"
+		},
+		{
+			id: 5,
+			question: "Can you verify a researcher's security credentials within 24 hours?",
+			context: "Funding agencies increasingly demand rapid credential verification.",
+			options: [
+				{ text: "Yes, via automated systems or digital badges", score: 10 },
+				{ text: "Yes, but requires manual lookup by staff", score: 6 },
+				{ text: "It takes several days to compile records", score: 3 },
+				{ text: "We have no centralized credential system", score: 0 }
+			],
+			area: "verification"
+		},
+		{
+			id: 6,
+			question: "How do you screen international collaborations for security risks?",
+			context: "Foreign influence risks are a primary concern under NSPM-33 and the FY2026 NDAA.",
+			options: [
+				{ text: "Formal due diligence process with risk scoring", score: 10 },
+				{ text: "Case-by-case review by compliance staff", score: 6 },
+				{ text: "PI-level discretion with no formal process", score: 3 },
+				{ text: "No screening process for collaborations", score: 0 }
+			],
+			area: "foreign"
+		},
+		{
+			id: 7,
+			question: "Does your institution have an insider threat awareness program?",
+			context: "73% of organizations discover IP theft too late. Proactive detection is critical.",
+			options: [
+				{ text: "Yes, with defined indicators and reporting channels", score: 10 },
+				{ text: "General awareness exists but no formal program", score: 6 },
+				{ text: "Only addressed reactively after incidents", score: 3 },
+				{ text: "Insider threats are not specifically addressed", score: 0 }
+			],
+			area: "insider"
+		},
+		{
+			id: 8,
+			question: "How do you manage researcher credentials when they leave?",
+			context: "Departing researchers represent a major vector for IP loss.",
+			options: [
+				{ text: "Formal offboarding with access revocation within 24 hours", score: 10 },
+				{ text: "IT handles access removal, usually within a week", score: 6 },
+				{ text: "Handled inconsistently depending on department", score: 3 },
+				{ text: "No formal offboarding process", score: 0 }
+			],
+			area: "offboarding"
+		},
+		{
+			id: 9,
+			question: "Are your data protection practices documented and enforced?",
+			context: "Research data classification and handling procedures are essential for compliance.",
+			options: [
+				{ text: "Comprehensive data classification with enforced controls", score: 10 },
+				{ text: "Policies exist but enforcement varies", score: 6 },
+				{ text: "Basic guidelines with no enforcement mechanism", score: 3 },
+				{ text: "No data protection documentation", score: 0 }
+			],
+			area: "data"
+		},
+		{
+			id: 10,
+			question: "How prepared is your institution for a research security audit?",
+			context: "Federal agencies are increasing audit frequency for grant recipients.",
+			options: [
+				{ text: "Audit-ready with maintained documentation and assigned staff", score: 10 },
+				{ text: "Could pass with a few weeks of preparation", score: 6 },
+				{ text: "Would need significant effort to prepare", score: 3 },
+				{ text: "Not prepared at all", score: 0 }
+			],
+			area: "audit"
+		}
+	];
+
+	const recommendations: Record<string, { icon: string; title: string; desc: string; link: string; linkText: string }> = {
+		program: { icon: "🏛️", title: "Establish a Formal Security Program", desc: "A structured research security program is the foundation of NSPM-33 compliance.", link: "/blog/understanding-nspm-33-requirements", linkText: "Read: Understanding NSPM-33 Requirements" },
+		training: { icon: "🎓", title: "Implement Mandatory Security Training", desc: "Tracked, verifiable training is increasingly required by federal funding agencies.", link: "/blog/5-steps-streamline-research-security-training", linkText: "Read: 5 Steps to Streamline Training" },
+		orcid: { icon: "🔗", title: "Mandate ORCiD Integration", desc: "ORCiD-linked credentials enable portable, instant verification across institutions.", link: "/blog/orcid-double-edged-sword", linkText: "Read: ORCID — The Double-Edged Sword" },
+		coi: { icon: "📋", title: "Automate COI Disclosure Collection", desc: "Manual COI processes create gaps. Automate collection and track updates in real time.", link: "/blog/common-mistakes-research-security-applications", linkText: "Read: Common Mistakes in Applications" },
+		verification: { icon: "✅", title: "Centralize Credential Verification", desc: "CSR certification provides instant, digital verification linked to ORCiD identifiers.", link: "/blog/orcid-integration-future-researcher-verification", linkText: "Read: Future of Researcher Verification" },
+		foreign: { icon: "🌐", title: "Formalize International Collaboration Screening", desc: "The FY2026 NDAA introduces new requirements for foreign collaboration due diligence.", link: "/blog/fy-2026-ndaa-research-organizations", linkText: "Read: FY2026 NDAA Impact" },
+		insider: { icon: "🔍", title: "Build an Insider Threat Program", desc: "Proactive detection prevents the 73% late-discovery problem that devastates research programs.", link: "/blog/ip-theft-late-discovery", linkText: "Read: Why 73% Discover IP Theft Too Late" },
+		offboarding: { icon: "🚪", title: "Formalize Researcher Offboarding", desc: "Departing researchers with lingering access are a primary IP theft vector.", link: "/blog/research-security-blind-spots", linkText: "Read: Research Security Blind Spots" },
+		data: { icon: "🔒", title: "Document Data Protection Protocols", desc: "Classify research data and enforce handling procedures to meet audit requirements.", link: "/blog/preparing-institution-research-security-audits", linkText: "Read: Preparing for Security Audits" },
+		audit: { icon: "📊", title: "Achieve Audit Readiness", desc: "Maintain living compliance documentation so audits are routine, not emergencies.", link: "/blog/preparing-institution-research-security-audits", linkText: "Read: Preparing for Security Audits" }
+	};
+
+	let currentQuestion = 0;
+	let answers: number[] = new Array(questions.length).fill(-1);
+
+	function renderQuestion() {
+		const q = questions[currentQuestion];
+		const card = document.getElementById('quiz-card')!;
+		const selectedIdx = answers[currentQuestion];
+
+		card.innerHTML = `
+			<h3>${q.question}</h3>
+			<p class="question-context">${q.context}</p>
+			<div class="quiz-options">
+				${q.options.map((opt, i) => `
+					<button class="quiz-option ${selectedIdx === i ? 'selected' : ''}" data-index="${i}">
+						<span class="radio"></span>
+						<span>${opt.text}</span>
+					</button>
+				`).join('')}
+			</div>
+		`;
+
+		card.querySelectorAll('.quiz-option').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const idx = parseInt((btn as HTMLElement).dataset.index!);
+				answers[currentQuestion] = idx;
+				renderQuestion();
+			});
+		});
+
+		// Update progress
+		document.getElementById('progress-bar')!.style.width = `${((currentQuestion + 1) / questions.length) * 100}%`;
+		document.getElementById('progress-text')!.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+
+		// Update nav
+		const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
+		const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+		prevBtn.disabled = currentQuestion === 0;
+		nextBtn.textContent = currentQuestion === questions.length - 1 ? 'See Results' : 'Next →';
+	}
+
+	function showResults() {
+		let totalScore = 0;
+		const weakAreas: string[] = [];
+
+		questions.forEach((q, i) => {
+			const ansIdx = answers[i];
+			const score = ansIdx >= 0 ? q.options[ansIdx].score : 0;
+			totalScore += score;
+			if (score <= 6) weakAreas.push(q.area);
+		});
+
+		document.getElementById('quiz-wrapper')!.style.display = 'none';
+		const resultsEl = document.getElementById('results-wrapper')!;
+		resultsEl.style.display = 'block';
+
+		// Animate gauge
+		const gaugeEl = document.getElementById('gauge-fill')!;
+		const scoreEl = document.getElementById('gauge-score')!;
+		const offset = 534 - (534 * (totalScore / 100));
+
+		let color = '#d00000';
+		if (totalScore >= 70) color = '#2d6a4f';
+		else if (totalScore >= 40) color = '#b45309';
+
+		setTimeout(() => {
+			gaugeEl.style.strokeDashoffset = String(offset);
+			gaugeEl.style.stroke = color;
+		}, 100);
+
+		// Animate counter
+		let current = 0;
+		const step = Math.max(1, Math.floor(totalScore / 40));
+		const counter = setInterval(() => {
+			current += step;
+			if (current >= totalScore) { current = totalScore; clearInterval(counter); }
+			scoreEl.textContent = String(current);
+			scoreEl.style.color = color;
+		}, 30);
+
+		// Verdict
+		const verdictEl = document.getElementById('score-verdict')!;
+		const titleEl = document.getElementById('score-title')!;
+		if (totalScore >= 80) {
+			titleEl.textContent = '🟢 Strong Compliance Posture';
+			verdictEl.textContent = 'Your institution demonstrates strong research security practices. CSR certification would formalize and make your compliance portable and verifiable.';
+		} else if (totalScore >= 50) {
+			titleEl.textContent = '🟡 Moderate Risk — Gaps Detected';
+			verdictEl.textContent = 'Your institution has foundations in place but significant gaps that could impact federal funding eligibility. Addressing the areas below is critical.';
+		} else {
+			titleEl.textContent = '🔴 High Risk — Immediate Action Needed';
+			verdictEl.textContent = 'Your institution has substantial compliance gaps that put research funding and intellectual property at serious risk. Prioritize the recommendations below.';
+		}
+
+		// Recommendations
+		const recsEl = document.getElementById('recommendations')!;
+		const sortedAreas = weakAreas.sort((a, b) => {
+			const aScore = answers[questions.findIndex(q => q.area === a)];
+			const bScore = answers[questions.findIndex(q => q.area === b)];
+			const aVal = aScore >= 0 ? questions.find(q => q.area === a)!.options[aScore].score : 0;
+			const bVal = bScore >= 0 ? questions.find(q => q.area === b)!.options[bScore].score : 0;
+			return aVal - bVal;
+		});
+
+		recsEl.innerHTML = `<h3 style="font-size:1.5rem;margin-bottom:1.25rem;color:var(--dark);">Personalized Recommendations</h3>` +
+			sortedAreas.map(area => {
+				const r = recommendations[area];
+				const qIdx = questions.findIndex(q => q.area === area);
+				const ansIdx = answers[qIdx];
+				const score = ansIdx >= 0 ? questions[qIdx].options[ansIdx].score : 0;
+				const sev = score === 0 ? 'high' : score <= 3 ? 'high' : 'medium';
+				const sevLabel = sev === 'high' ? 'Critical' : 'Needs Improvement';
+				return `<div class="rec-card">
+					<div class="rec-icon">${r.icon}</div>
+					<div>
+						<span class="rec-severity severity-${sev}">${sevLabel}</span>
+						<h4>${r.title}</h4>
+						<p>${r.desc}</p>
+						<a href="${r.link}" class="rec-link">${r.linkText} →</a>
+					</div>
+				</div>`;
+			}).join('');
+
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+
+	document.addEventListener('DOMContentLoaded', () => {
+		renderQuestion();
+
+		document.getElementById('next-btn')!.addEventListener('click', () => {
+			if (answers[currentQuestion] === -1) {
+				const card = document.getElementById('quiz-card')!;
+				card.style.animation = 'none';
+				card.offsetHeight; // reflow
+				card.style.animation = 'shake 0.4s';
+				return;
+			}
+			if (currentQuestion === questions.length - 1) {
+				showResults();
+			} else {
+				currentQuestion++;
+				renderQuestion();
+			}
+		});
+
+		document.getElementById('prev-btn')!.addEventListener('click', () => {
+			if (currentQuestion > 0) {
+				currentQuestion--;
+				renderQuestion();
+			}
+		});
+
+		document.getElementById('retake-btn')!.addEventListener('click', () => {
+			currentQuestion = 0;
+			answers = new Array(questions.length).fill(-1);
+			document.getElementById('results-wrapper')!.style.display = 'none';
+			document.getElementById('quiz-wrapper')!.style.display = 'block';
+			renderQuestion();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	});
+</script>
+
+<style>
+	@keyframes shake {
+		0%, 100% { transform: translateX(0); }
+		20% { transform: translateX(-6px); }
+		40% { transform: translateX(6px); }
+		60% { transform: translateX(-4px); }
+		80% { transform: translateX(4px); }
+	}
+</style>

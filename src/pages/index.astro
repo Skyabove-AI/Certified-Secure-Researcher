@@ -37,15 +37,15 @@ import Footer from "../components/Footer.astro";
 
 			<div class="stats">
 				<div class="stat">
-					<div class="stat-value">10 Days</div>
+					<div class="stat-value" data-target="10" data-suffix=" Days">0</div>
 					<div class="stat-label">Average Processing</div>
 				</div>
 				<div class="stat">
-					<div class="stat-value">100%</div>
+					<div class="stat-value" data-target="100" data-suffix="%">0</div>
 					<div class="stat-label">Verified Credentials</div>
 				</div>
 				<div class="stat">
-					<div class="stat-value">24/7</div>
+					<div class="stat-value" data-target="24" data-suffix="/7">0</div>
 					<div class="stat-label">Portal Access</div>
 				</div>
 			</div>
@@ -270,47 +270,52 @@ import Footer from "../components/Footer.astro";
 	<section class="section bg-light" id="requirements">
 		<div class="container">
 			<h2 class="section-title">Step-by-step path to certification</h2>
-			<div class="steps">
-				<div class="step">
-					<div class="step-number">1</div>
-					<h3>Register for ORCiD ID</h3>
-					<p>
-						Create or confirm your 16-digit identifier required
-						before starting.
-					</p>
+			<!-- Interactive Stepper -->
+			<div class="stepper-container">
+				<div class="stepper-track">
+					<div class="stepper-line"><div class="stepper-line-fill" id="stepper-line-fill"></div></div>
+					<button class="stepper-dot active" data-step="0"><span>1</span></button>
+					<button class="stepper-dot" data-step="1"><span>2</span></button>
+					<button class="stepper-dot" data-step="2"><span>3</span></button>
+					<button class="stepper-dot" data-step="3"><span>4</span></button>
+					<button class="stepper-dot" data-step="4"><span>5</span></button>
+					<button class="stepper-dot" data-step="5"><span>6</span></button>
 				</div>
-				<div class="step">
-					<div class="step-number">2</div>
-					<h3>Complete CSR Application</h3>
-					<p>
-						Use ORCiD credentials, provide details, initiate
-						security questionnaire.
-					</p>
+				<div class="stepper-content" id="stepper-content">
+					<div class="stepper-card active" data-panel="0">
+						<h3>Register for ORCiD ID</h3>
+						<p>Create or confirm your 16-digit identifier required before starting. ORCiD is the universal researcher ID that funding agencies recognize worldwide.</p>
+						<span class="stepper-time">⏱️ ~5 minutes</span>
+					</div>
+					<div class="stepper-card" data-panel="1">
+						<h3>Complete CSR Application</h3>
+						<p>Use ORCiD credentials, provide institutional details, and initiate the security questionnaire covering your research history and collaborations.</p>
+						<span class="stepper-time">⏱️ ~30 minutes</span>
+					</div>
+					<div class="stepper-card" data-panel="2">
+						<h3>Submit Payment</h3>
+						<p>Pay the application fee to unlock the enrollment center. Institutional licenses with volume discounts are available for organizations.</p>
+						<span class="stepper-time">⏱️ ~2 minutes</span>
+					</div>
+					<div class="stepper-card" data-panel="3">
+						<h3>Schedule Interview</h3>
+						<p>Book a time slot with the adjudication team. Virtual appointments are available across all time zones.</p>
+						<span class="stepper-time">⏱️ ~2 minutes</span>
+					</div>
+					<div class="stepper-card" data-panel="4">
+						<h3>Attend Virtual Adjudication</h3>
+						<p>Share collaboration histories, upload supporting documents, and complete required training modules in a guided virtual session.</p>
+						<span class="stepper-time">⏱️ 1-2 hours</span>
+					</div>
+					<div class="stepper-card" data-panel="5">
+						<h3>Receive CSR Number</h3>
+						<p>Get your official designation via email with an ORCiD profile badge. Your certification is now portable and instantly verifiable by any sponsor.</p>
+						<span class="stepper-time">✅ Within 10 business days</span>
+					</div>
 				</div>
-				<div class="step">
-					<div class="step-number">3</div>
-					<h3>Submit Payment</h3>
-					<p>
-						Pay the application fee to unlock the enrollment center.
-					</p>
-				</div>
-				<div class="step">
-					<div class="step-number">4</div>
-					<h3>Schedule Interview</h3>
-					<p>Book time with the adjudication team.</p>
-				</div>
-				<div class="step">
-					<div class="step-number">5</div>
-					<h3>Attend Virtual Adjudication</h3>
-					<p>
-						Share collaboration histories, upload documents,
-						complete training.
-					</p>
-				</div>
-				<div class="step">
-					<div class="step-number">6</div>
-					<h3>Receive CSR Number</h3>
-					<p>Get designation via email with ORCiD profile badge.</p>
+				<div class="stepper-nav">
+					<button class="btn btn-secondary" id="stepper-prev" disabled>← Previous</button>
+					<button class="btn btn-primary" id="stepper-next">Next Step →</button>
 				</div>
 			</div>
 			<p class="timeline">
@@ -576,12 +581,24 @@ import Footer from "../components/Footer.astro";
 	.hero::before {
 		content: "";
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 800px;
-		height: 800px;
-		background: radial-gradient(circle, rgba(45, 106, 79, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
-		transform: translate(-50%, -50%);
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url('/assets/csrbackground.webp') center/cover no-repeat;
+		opacity: 0.25;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.hero::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(180deg, rgba(11,17,32,0.6) 0%, rgba(11,17,32,0.85) 100%);
 		z-index: 0;
 		pointer-events: none;
 	}
@@ -1061,4 +1078,146 @@ import Footer from "../components/Footer.astro";
 			padding: 4rem 0;
 		}
 	}
+
+	/* Stepper */
+	.stepper-container { max-width: 800px; margin: 0 auto; }
+	.stepper-track {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		margin-bottom: 2rem;
+		padding: 0 1rem;
+	}
+	.stepper-line {
+		position: absolute;
+		top: 50%; left: 1rem; right: 1rem;
+		height: 4px;
+		background: var(--light-gray);
+		z-index: 0;
+		transform: translateY(-50%);
+	}
+	.stepper-line-fill {
+		height: 100%;
+		background: var(--primary);
+		width: 0%;
+		transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	.stepper-dot {
+		width: 44px; height: 44px;
+		border-radius: 50%;
+		background: white;
+		border: 3px solid var(--light-gray);
+		display: flex; align-items: center; justify-content: center;
+		z-index: 1;
+		cursor: pointer;
+		transition: all 0.3s;
+		position: relative;
+	}
+	.stepper-dot span {
+		font-weight: 700; font-size: 0.875rem;
+		color: var(--gray);
+		transition: color 0.3s;
+	}
+	.stepper-dot.active, .stepper-dot.completed {
+		background: var(--primary);
+		border-color: var(--primary);
+	}
+	.stepper-dot.active span, .stepper-dot.completed span { color: white; }
+	.stepper-dot:hover { transform: scale(1.15); }
+	.stepper-card {
+		display: none;
+		background: white;
+		padding: 2.5rem;
+		border: 2px solid var(--light-gray);
+		box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+		animation: fadeSlide 0.4s ease-out;
+	}
+	.stepper-card.active { display: block; }
+	.stepper-card h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 0.75rem; }
+	.stepper-card p { color: var(--gray); line-height: 1.7; font-size: 1.0625rem; margin-bottom: 1rem; }
+	.stepper-time {
+		display: inline-block;
+		background: var(--accent);
+		padding: 0.375rem 0.75rem;
+		font-size: 0.8125rem;
+		font-weight: 700;
+		color: var(--primary-dark);
+	}
+	.stepper-nav {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 1.5rem;
+	}
+	.stepper-nav .btn { min-width: 140px; text-align: center; }
+
+	@keyframes fadeSlide {
+		from { opacity: 0; transform: translateY(12px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
 </style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		// === Animated Counters ===
+		const counters = document.querySelectorAll('.stat-value[data-target]');
+		const counterObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const el = entry.target as HTMLElement;
+					const target = parseInt(el.dataset.target!);
+					const suffix = el.dataset.suffix || '';
+					let current = 0;
+					const duration = 1500;
+					const stepTime = Math.max(16, duration / target);
+					const increment = Math.max(1, Math.floor(target / (duration / stepTime)));
+					const timer = setInterval(() => {
+						current += increment;
+						if (current >= target) {
+							current = target;
+							clearInterval(timer);
+						}
+						el.textContent = current + suffix;
+					}, stepTime);
+					counterObserver.unobserve(el);
+				}
+			});
+		}, { threshold: 0.5 });
+		counters.forEach(c => counterObserver.observe(c));
+
+		// === Interactive Stepper ===
+		let activeStep = 0;
+		const dots = document.querySelectorAll('.stepper-dot');
+		const panels = document.querySelectorAll('.stepper-card');
+		const lineFill = document.getElementById('stepper-line-fill');
+		const prevBtn = document.getElementById('stepper-prev') as HTMLButtonElement;
+		const nextBtn = document.getElementById('stepper-next') as HTMLButtonElement;
+
+		function updateStepper() {
+			dots.forEach((dot, i) => {
+				dot.classList.toggle('active', i === activeStep);
+				dot.classList.toggle('completed', i < activeStep);
+			});
+			panels.forEach((p, i) => p.classList.toggle('active', i === activeStep));
+			if (lineFill) lineFill.style.width = `${(activeStep / (dots.length - 1)) * 100}%`;
+			prevBtn.disabled = activeStep === 0;
+			nextBtn.textContent = activeStep === dots.length - 1 ? 'Start Application →' : 'Next Step →';
+		}
+
+		dots.forEach(dot => {
+			dot.addEventListener('click', () => {
+				activeStep = parseInt((dot as HTMLElement).dataset.step!);
+				updateStepper();
+			});
+		});
+
+		prevBtn?.addEventListener('click', () => {
+			if (activeStep > 0) { activeStep--; updateStepper(); }
+		});
+
+		nextBtn?.addEventListener('click', () => {
+			if (activeStep < dots.length - 1) { activeStep++; updateStepper(); }
+			else { window.location.href = 'https://app.certifiedsecureresearcher.com/signup'; }
+		});
+	});
+</script>
